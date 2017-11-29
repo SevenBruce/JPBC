@@ -4,7 +4,7 @@ public class MyMain {
    
 	public static void main(String[] args) {
   		
-  		DL_Time.DiscreteLogarithmTime();
+//  		DL_Time.DiscreteLogarithmTime();
   		GroupOperations.GroupOperations();
 
 	}

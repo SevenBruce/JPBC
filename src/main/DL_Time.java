@@ -19,11 +19,12 @@ public class DL_Time {
 		double total = 0;
 		for(int i = 0;i<count;i++){
 			BigInteger bigExp =  BigInteger.probablePrime(60, rnd);
-			sl = System.currentTimeMillis();
+			sl = System.nanoTime();
 			BigInteger bigResult = bigbase.modPow(bigExp, bigMod);
-			el = System.currentTimeMillis();
+			el = System.nanoTime();
 			total = total + (el-sl);
 		}
+		total = total / 1000000;
 		System.out.println("DL small exponentiation time is " + total/count);
 		
 		// the time of exponent operation when l is 60~1024 bit long.
@@ -33,11 +34,12 @@ public class DL_Time {
 			long l = System.currentTimeMillis();
 			bits  = (int)( l % 965 ) + 60;
 			BigInteger bigExp =  BigInteger.probablePrime(bits, rnd);
-			sl = System.currentTimeMillis();
+			sl = System.nanoTime();
 			BigInteger bigResult = bigbase.modPow(bigExp, bigMod);
-			el = System.currentTimeMillis();
+			el = System.nanoTime();
 			total = total + (el-sl);
 		}
+		total = total / 1000000;
 		System.out.println("DL exponentiation time is " + total/count);
 			
 		
@@ -47,11 +49,14 @@ public class DL_Time {
 			long l = System.currentTimeMillis();
 			bits  = (int)( l % 965 ) + 60;
 			BigInteger bigExp =  BigInteger.probablePrime(bits, rnd);
-			sl = System.currentTimeMillis();
+			bigbase  =  BigInteger.probablePrime(bits, rnd);
+			sl = System.nanoTime();
 			BigInteger bigResult = bigbase.multiply(bigExp);
-			el = System.currentTimeMillis();
+			el = System.nanoTime();
 			total = total + (el-sl);
 		}
+		
+		total = total / 1000000;
 		System.out.println("DL mul time is " + total/count);
 	}
 
